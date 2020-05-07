@@ -12,4 +12,9 @@ export class TrainingComponent implements OnInit {
   ngOnInit() {
   }
 
+  // *ngFor='let in of counter(5) ;let i = index
+  counter(i: number) {
+    return new Array(i);
+}
+
 }

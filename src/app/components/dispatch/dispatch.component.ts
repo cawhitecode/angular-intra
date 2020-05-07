@@ -23,7 +23,8 @@ export class DispatchComponent implements OnInit {
    }
 
   ngOnInit() {
-     this.dropdownList = [
+    this.selectedItems = [{ item_id: 2, item_text: 'CHI - Chicago' }]
+    this.dropdownList = [
       { item_id: 1, item_text: 'ATL - Atlanta'},
       { item_id: 2, item_text: 'CHI - Chicago' },
       { item_id: 3, item_text: 'CLE - Cleveland' },
