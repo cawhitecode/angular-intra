@@ -9,7 +9,7 @@
   width: 100%;
   text-align: center;
   height:368px;
-  border:none;
+  
 }
 .profile-card-3 .background-block {
     float: left;
@@ -18,8 +18,11 @@
     overflow: hidden;
 }
 .profile-card-3 .background-block .background {
-  width:100%;
+  width:30%;
+  padding-top: 7%;
+  padding-left: 10%;
   vertical-align: top;
+  float: left;
   opacity: 0.9;
   -webkit-filter: blur(0.5px);
   filter: blur(0.5px);
