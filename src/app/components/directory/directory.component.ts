@@ -12,4 +12,11 @@ export class DirectoryComponent implements OnInit {
   ngOnInit() {
   }
 
+  // added multiselect or query
+
+  // *ngFor='let in of counter(5) ;let i = index
+  counter(i: number) {
+    return new Array(i);
+}
+
 }
