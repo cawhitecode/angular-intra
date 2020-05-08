@@ -78,6 +78,12 @@ export class DispatchComponent implements OnInit {
   }
 
   // Function to Add All markets to both Arrays
+  onAllItemSelect()
+  {
+    for (let market of this.dropdownList){
+      this.pushItemToSelectedMarkets(market);
+      }
+  }
  
 
   // On dropdown DeSelect finds index of item to be removed and removes from selected markets
