@@ -11,8 +11,12 @@
 </ng-multiselect-dropdown>
 </div>
 
-<div *ngFor="let item of selectedItems">
+<div *ngFor="let market of selectedMarkets">
   <hr>
-    <h2>{{ item.item_text }}</h2>
-    <p> More info here </p>
+    <h2>{{ market.name }} - {{ date | date:'MMM d, h:mm:ss a' : '-4' }}</h2>
+    <h2>{{ market.name }} - {{ date | date:'MMM d, h:mm:ss a' : '-5' }}</h2>
+    <h2>{{ market.name }} - {{ date | date:'MMM d, h:mm:ss a' : '-6' }}</h2>
+    <h2>{{ market.name }} - {{ date | date:'MMM d, h:mm:ss a' : '-7' }}</h2>
+    <p> {{ market.map }}</p>
+    <p> {{ date | date:'MMM d, h:mm:ss a' : '-7'}} </p>
 </div>

@@ -1,11 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
+
+class Market {
+  id: number;
+  name: string;
+  dateTime: Date;
+  map: string;
+}
 @Component({
   selector: 'app-dispatch',
   templateUrl: './dispatch.component.html',
   styleUrls: ['./dispatch.component.css']
 })
+
+
 export class DispatchComponent implements OnInit {
 
   // Data for DateTimes
@@ -14,7 +23,9 @@ export class DispatchComponent implements OnInit {
   // Values to initialize multi-select options
   public dropdownList = [];
   public selectedItems = [];
-  public dropdownSettings = {}
+  public selectedMarkets = [];
+  public dropdownSettings = {};
+
 
   constructor() {
     setInterval(() => {
@@ -58,12 +69,22 @@ export class DispatchComponent implements OnInit {
   // setHours(d.getHours() - 2);
 
   onItemSelect(item: any) {
-  let selected = this.selectedItems;
-  console.log(item);
+  this.pushItemToSelectedMarkets(item);
   }
 
   onItemDeSelect(item: any) {
     console.log(this.selectedItems);;
-  }  
+  }
 
+  // function to add a market to a 
+  pushItemToSelectedMarkets(item){
+    console.log(item);
+    let newmarket = new Market();
+    newmarket.id = 1;
+    newmarket.dateTime = this.date;
+    newmarket.name = item.item_text;
+    newmarket.map = "Map URL Goes Here";
+    console.log(newmarket);
+    this.selectedMarkets.push(newmarket);
+  }
 }
