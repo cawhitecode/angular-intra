@@ -5,7 +5,7 @@ import { IDropdownSettings } from 'ng-multiselect-dropdown';
 class Market {
   id: number;
   name: string;
-  dateTime: Date;
+  gmtOffset: number;
   map: string;
 }
 @Component({
@@ -80,8 +80,8 @@ export class DispatchComponent implements OnInit {
   pushItemToSelectedMarkets(item){
     console.log(item);
     let newmarket = new Market();
-    newmarket.id = 1;
-    newmarket.dateTime = this.date;
+    newmarket.id = item.item_id;
+    newmarket.gmtOffset = -5;
     newmarket.name = item.item_text;
     newmarket.map = "Map URL Goes Here";
     console.log(newmarket);
