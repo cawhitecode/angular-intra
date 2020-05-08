@@ -2,24 +2,25 @@
 <div class="row mx-auto">
   <div class="col-1">
   </div>
-  <div class="col-10">
-    <div class="row mx-auto">
-<div class="col-lg-3 col-md-4 col-sm-6" *ngFor='let in of counter(50) ;let i = index'>
-    		    <div class="card profile-card-3">
-    		        <div class="background-block">
-    		            <img src="https://scontent-dfw5-2.xx.fbcdn.net/v/t1.0-1/66475643_372760276714988_2847522111331762176_n.jpg?_nc_cat=100&_nc_sid=dbb9e7&_nc_ohc=4gXALIcWd7UAX_pEppy&_nc_ht=scontent-dfw5-2.xx&oh=ce3baddb6529d35630068a069da88945&oe=5ED84777" alt="profile-sample1" class="background"/>
-    		        </div>
-    		        <div class="profile-thumb-block">
-    		            <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="profile-image" class="profile"/>
-    		        </div>
-    		        <div class="card-content">
-                    <h2>Richard Example<small>Job title</small></h2>
-                    <div class="icon-block text-center"><a href="#"><i class="fa fa-phone"></i></a><a href="#"> <i class="fa fa-envelope"></i> </a><a href="#"> <i class="fa fa-google-plus"></i> </a></div>
-                    </div>
-                </div>
-</div>
-</div>
-<div class="col-1">
-  </div>
+    <div class="col-10">
+      <div class="row mx-auto">
+          <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let employee of directory">
+              <div class="card profile-card-3">
+                  <div class="background-block">
+                      <img src="https://scontent-dfw5-2.xx.fbcdn.net/v/t1.0-1/66475643_372760276714988_2847522111331762176_n.jpg?_nc_cat=100&_nc_sid=dbb9e7&_nc_ohc=4gXALIcWd7UAX_pEppy&_nc_ht=scontent-dfw5-2.xx&oh=ce3baddb6529d35630068a069da88945&oe=5ED84777" alt="profile-sample1" class="background"/>
+                  </div>
+                  <div class="profile-thumb-block">
+                      <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="profile-image" class="profile"/>
+                  </div>
+                  <div class="card-content">
+                      <h2>{{ employee.firstName }} {{ employee.lastName }}<small>{{ employee.jobTitle }}</small></h2>
+                      <div class="icon-block text-center"><a href="#"><i class="fa fa-phone"></i></a><a href="#"> <i class="fa fa-envelope"></i> </a><a href="#"> <i class="fa fa-google-plus"></i> </a></div>
+                      </div>
+                  </div>
+          </div>
+      </div>
+    </div>
+  <div class="col-1">
+    </div>
 </div>
 

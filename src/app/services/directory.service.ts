@@ -1,11 +1,41 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable, BehaviorSubject } from "rxjs";
 import { of } from 'rxjs';
 
-class person {
+// object for directory to pull from
+class Employee {
   id: number;
-  name: string;
+  firstName: string;
+  lastName: string;
   jobTitle: string;
+  phoneNumber: string;
+  email: string;
+  googleChat: string;
+}
+
+// May use for setting up directory later might need to be deleted
+export class directory {
+  directory = [
+    {
+      id: 1,
+      firstName: 'Juri',
+      lastName: 'Example',
+      jobTitle: 'Manager'
+    },
+    {
+      id: 2,
+      firstName: 'Steffi',
+      lastName: 'Example',
+      jobTitle: 'Finacial Analysis'
+    },
+    {
+      id: 3,
+      firstName: 'Dietmar',
+      lastName: 'Example',
+      jobTitle: 'Saless'
+    }
+  ];
+
 }
 
 @Injectable({
@@ -13,22 +43,30 @@ class person {
 })
 
 export class DirectoryService {
+  /*
+  // For use later when connected to Directory API
+  private directory = new BehaviorSubject<Employee[]>(null);
+  directory$: Observable<Employee[]> = this.directory.asObservable();
+  */
 
-  peoples = [
+  directory = [
     {
       id: 1,
-      name: 'Juri',
+      firstName: 'Juri',
+      lastName: 'Example',
       jobTitle: 'Manager'
     },
     {
       id: 2,
-      name: 'Steffi',
+      firstName: 'Steffi',
+      lastName: 'Example',
       jobTitle: 'Finacial Analysis'
     },
     {
       id: 3,
-      name: 'Dietmar',
-      jobTitle: 'Sales'
+      firstName: 'Dietmar',
+      lastName: 'Example',
+      jobTitle: 'Saless'
     }
   ];
 
@@ -36,18 +74,16 @@ export class DirectoryService {
   
   // GET ROUTES
   getDirectory() {
-    this.setPeopleToPeoples(4, 'Chris', 'Tow');
-    this.setPeopleToPeoples(5, 'Jim', 'Driver');
-    this.setPeopleToPeoples(6, 'Sam', 'Payroll');
-    return of(this.peoples);
+    return of(this.directory);
   }
 
-  setPeopleToPeoples(id: number, name: string, jobTitle: string){
-    let personToSet = new person;
+  setEmployeeToDirectory(id: number, firstName: string, lastName: string, jobTitle: string){
+    let personToSet = new Employee;
     personToSet.id = id;
-    personToSet.name = name;
+    personToSet.firstName = firstName;
+    personToSet.lastName = lastName;
     personToSet.jobTitle = jobTitle;
-    this.peoples.push(personToSet);
+    this.directory.push(personToSet);
   }
 
 }
