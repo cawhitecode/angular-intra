@@ -13,7 +13,7 @@
 
 <div *ngFor="let market of selectedMarkets">
   <hr>
-    <h2>{{ market.name }} - {{ date | date:'MMM d, h:mm:ss a' : 'market.gmtOffset' }}</h2>
+    <h2>{{ market.name }} - {{ date | date:'MMM d, h:mm:ss a' : market.gmtOffset }}</h2>
     <p> {{ market.map }}</p>
     <h5> Services offered by market</h5>
 </div>
