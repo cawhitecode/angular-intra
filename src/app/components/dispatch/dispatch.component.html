@@ -5,8 +5,9 @@
   [(ngModel)]="selectedItems"
   [settings]="dropdownSettings"
   (onSelect)="onItemSelect($event)"
+  (onSelectAll)="onAllItemSelect()"
   (onDeSelect)="onItemDeSelect($event)"
-  (onDeSelectAll)="homePage()"
+  (onDeSelectAll)="onAllItemDeSelect()"
 >
 </ng-multiselect-dropdown>
 </div>
