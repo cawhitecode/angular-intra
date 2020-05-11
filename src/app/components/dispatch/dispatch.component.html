@@ -16,5 +16,29 @@
   <hr>
     <h2>{{ market.name }} - {{ date | date:'MMM d, h:mm:ss a' : market.gmtOffset }}</h2>
     <p> {{ market.map }}</p>
-    <h5> Services offered by market</h5>
+    <p> Services offered by market</p>
+    <h4>Do Not Service</h4>
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Row</th>
+      <th scope="col">Reason</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Car</th>
+      <th scope="col">Vin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let market of market.DoNotServiceList; index as i" [attr.data-index]="i">
+      <th scope="row">{{ i+1 }}</th>
+      <td>{{ market.name }}</td>
+      <td>{{ market.reason }}</td>
+      <td>{{ market.phone }}</td>
+      <td>{{ market.car }}</td>
+      <td>{{ market.vin }}</td>
+    </tr>
+      </tbody>
+</table>
 </div>
+

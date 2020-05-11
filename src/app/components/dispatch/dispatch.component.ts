@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
-class DoNotServiceCustomer {
+interface DoNotServiceCustomer {
   reason: string;
   name: string;
   car: string;
@@ -15,8 +15,10 @@ class Market {
   name: string;
   gmtOffset: string;
   map: string;
-  // DoNotServiceList: Array<DoNotServiceCustomer>;
+  DoNotServiceList: Array<DoNotServiceCustomer>;
 }
+
+let example = [{name: "Example Last", car: "Ford Focus", vin: '555343abc', reason: "Being Dumb", phone: "555-555-2234"}];
 
 @Component({
   selector: 'app-dispatch',
@@ -30,7 +32,7 @@ export class DispatchComponent implements OnInit {
   // Data for DateTimes
   date:Date;
 
-  public selectedMarkets = [{marketId: 101, gmtOffset: "-4", name: 'DFW - Dallas / Ft Worth', map: "Map URL Goes Here" }]
+  public selectedMarkets: Array<Market> = [{marketId: 1001, gmtOffset: "-4", name: 'DFW - Dallas / Ft Worth', map: "Map URL Goes Here", DoNotServiceList: example }]
   
 
   // Values to initialize multi-select options
@@ -114,14 +116,6 @@ export class DispatchComponent implements OnInit {
     this.setTimzoneBasedOnItemId(item.item_id, newmarket);
     newmarket.name = item.item_text;
     newmarket.map = "Map URL Goes Here";
-
-    let tempCustomer = new DoNotServiceCustomer();
-    tempCustomer.car = "Dodge Charger";
-    tempCustomer.name = "James";
-    tempCustomer.phone = "555-555-2343";
-    tempCustomer.reason = "Feul Abuser";
-    tempCustomer.vin = "Ex23432";
-    // newmarket.DoNotServiceList.push(tempCustomer);
     this.selectedMarkets.push(newmarket);
   }
   // Function to set timezone based on item_id to be used in html to offset based on GMT
