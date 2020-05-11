@@ -1,13 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
+class DoNotServiceCustomer {
+  reason: string;
+  name: string;
+  car: string;
+  phone: string;
+  vin: string;
+}
 
+// Object for each market card to pull info from
 class Market {
   marketId: number;
   name: string;
   gmtOffset: string;
   map: string;
+  // DoNotServiceList: Array<DoNotServiceCustomer>;
 }
+
 @Component({
   selector: 'app-dispatch',
   templateUrl: './dispatch.component.html',
@@ -20,10 +30,7 @@ export class DispatchComponent implements OnInit {
   // Data for DateTimes
   date:Date;
 
-  public selectedMarkets: {marketId: number;
-  name: string;
-  gmtOffset: string;
-  map: string;}[] = [{marketId: 101, gmtOffset: "-4", name: 'DFW - Dallas / Ft Worth', map: "Map URL Goes Here"}]
+  public selectedMarkets = [{marketId: 101, gmtOffset: "-4", name: 'DFW - Dallas / Ft Worth', map: "Map URL Goes Here" }]
   
 
   // Values to initialize multi-select options
@@ -39,7 +46,7 @@ export class DispatchComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.selectedItems = [{ item_id: 101, item_text: 'DFW - Dallas / Ft Worth' }]
+    this.selectedItems = [{ item_id: 1001, item_text: 'DFW - Dallas / Ft Worth' }]
     this.dropdownList = [
       { item_id: 1, item_text: 'ATL - Atlanta'},
       { item_id: 1000, item_text: 'CHI - Chicago' },
@@ -107,6 +114,14 @@ export class DispatchComponent implements OnInit {
     this.setTimzoneBasedOnItemId(item.item_id, newmarket);
     newmarket.name = item.item_text;
     newmarket.map = "Map URL Goes Here";
+
+    let tempCustomer = new DoNotServiceCustomer();
+    tempCustomer.car = "Dodge Charger";
+    tempCustomer.name = "James";
+    tempCustomer.phone = "555-555-2343";
+    tempCustomer.reason = "Feul Abuser";
+    tempCustomer.vin = "Ex23432";
+    // newmarket.DoNotServiceList.push(tempCustomer);
     this.selectedMarkets.push(newmarket);
   }
   // Function to set timezone based on item_id to be used in html to offset based on GMT
